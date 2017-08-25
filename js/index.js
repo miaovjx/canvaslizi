@@ -1,9 +1,17 @@
 /**
  * Created by json(610330335@qq.com) .
  */
-$(function() {
+
+
+
+
+
+require(['zepto','appfix','PageSlider', 'mtween', 'pxloaderImages'], function($,appfix) {　
+    console.log(appfix.enterfix)
+     appfix.enterfix()
+   
     //加载图
-    var imgarr = ['images/bg1.jpg'];
+    var imgarr = [''];
     //app初始化
     var h5 = new PageSlider({
         pages: $('.page-wrap .page'),
@@ -141,8 +149,6 @@ $(function() {
     })();
 
 
-
-
     $('.btn_start').on('animationend webkitAnimationEnd', function() {
         $('.btn_start').removeClass('rotateIn delay1200').addClass('pulse')
     });
@@ -234,4 +240,7 @@ $(function() {
         var partten = /(^13\d{9}$)|(^14)[5,7]\d{8}$|(^15\d{9}$)|(^17\d{9}$)|(^18\d{9}$)/g;
         return partten.test(s);
     }
+
 });
+
+     

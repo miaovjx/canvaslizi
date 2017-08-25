@@ -1,6 +1,7 @@
-;(function ($, window) {
 
+　define(['zepto','jweixin'], function($,wx){
     //默认参数
+
     var defaults = {
         direction: 'vertical',    //滚动方向：vertical/horizontal
         currentClass: 'current',  //当前 className
@@ -12,7 +13,7 @@
         dev: false,               //开发模式，传入数值，直接跳到正在开发的屏数
         musicUrl: false,          //是否需要背景音乐
         shareUrl: 'https://yidian.weiyihui.com.cn/weixinshare/index.php', //默认分享方式
-        baseUrl: '',      
+        baseUrl: '', 
         onSwipeUp: function () {  //swipeUp 回调
         },
         checkMobile: function(s) { //正则匹配手机号
@@ -518,7 +519,7 @@
                 }, false);
 
                 //切换音乐播放
-                $(".u-btn-play").live('tap', function () {
+                $(".u-btn-play").on('tap', function () {
                     if (bgmusic.paused) {
                         bgmusic.play();
                         $(this).removeClass("zanting").addClass('rotate');
@@ -563,7 +564,7 @@
                     }
                 },
                 error: function (e) {
-                         //alert(e)
+                        //alert(e)
                 }
             });
         },
@@ -637,10 +638,4 @@
 
     window.PageSlider = PageSlider;
 
-})(Zepto, window);
-
-if (typeof define === "function" && define.amd) {
-    define("PageSlider", [], function () {
-        return PageSlider;
-    });
-}
+});
